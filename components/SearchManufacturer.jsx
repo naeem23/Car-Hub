@@ -7,6 +7,7 @@ import { manufacturers } from '@/constants';
 
 const SearchManufacturer = ({ manufacturer, setManufacturer }) => {
     const [query, setQuery] = useState('');
+
     const filteredManufacturers =
         query === ''
             ? manufacturers
@@ -45,7 +46,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }) => {
                         leaveTo="opacity-0"
                         afterLeave={() => setQuery('')}
                     >
-                        <Combobox.Options>
+                        <Combobox.Options className='absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white p-2 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-10' static>
                             {filteredManufacturers.length === 0 &&
                             query !== '' ? (
                                 <div className="relative search-manufacturer__option text-gray-700">
